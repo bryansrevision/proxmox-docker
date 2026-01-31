@@ -1,0 +1,238 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🏠 Home Assistant: Start Services",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": ["up", "-d"],
+      "options": {
+        "cwd": "${workspaceFolder:Home Assistant Integration}"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "🏠 Home Assistant: Stop Services",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": ["down"],
+      "options": {
+        "cwd": "${workspaceFolder:Home Assistant Integration}"
+      }
+    },
+    {
+      "label": "🏠 Home Assistant: View Logs",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": ["logs", "-f", "--tail=100"],
+      "options": {
+        "cwd": "${workspaceFolder:Home Assistant Integration}"
+      },
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "🏠 Home Assistant: Restart",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": ["restart"],
+      "options": {
+        "cwd": "${workspaceFolder:Home Assistant Integration}"
+      }
+    },
+    {
+      "label": "🏠 Home Assistant: Health Check",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "${workspaceFolder:Home Assistant Integration}/test_ha_connection.py"
+      ],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "🖥️ Proxmox: API Status Check",
+      "type": "shell",
+      "command": "ssh",
+      "args": ["proxmox", "pvesh get /api2/json/version"],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "🖥️ Proxmox: List VMs",
+      "type": "shell",
+      "command": "ssh",
+      "args": ["proxmox", "qm list"],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "🖥️ Proxmox: List Containers",
+      "type": "shell",
+      "command": "ssh",
+      "args": ["proxmox", "pct list"],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "🖥️ Proxmox: System Status",
+      "type": "shell",
+      "command": "ssh",
+      "args": ["proxmox", "df -h && free -h && uptime"],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "🐳 Docker: Start All Services",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": ["up", "-d"],
+      "options": {
+        "cwd": "${workspaceFolder:Proxmox Docker Platform}"
+      }
+    },
+    {
+      "label": "🐳 Docker: Stop All Services",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": ["down"],
+      "options": {
+        "cwd": "${workspaceFolder:Proxmox Docker Platform}"
+      }
+    },
+    {
+      "label": "🐳 Docker: View Container Status",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": ["ps"],
+      "options": {
+        "cwd": "${workspaceFolder:Proxmox Docker Platform}"
+      }
+    },
+    {
+      "label": "🐳 Docker: View Logs",
+      "type": "shell",
+      "command": "docker-compose",
+      "args": ["logs", "-f", "--tail=50"],
+      "options": {
+        "cwd": "${workspaceFolder:Proxmox Docker Platform}"
+      },
+      "isBackground": true
+    },
+    {
+      "label": "🔌 Test IFTTT Webhook",
+      "type": "shell",
+      "command": "curl",
+      "args": [
+        "-X",
+        "POST",
+        "https://maker.ifttt.com/trigger/test/with/key/bP_UORzOKD-9wjLYvfWanHbCuwIgaDXSxv2NfAtLM5Y",
+        "-H",
+        "Content-Type: application/json",
+        "-d",
+        "{\"value1\":\"Test from VS Code\"}"
+      ],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "📦 Python: Create Virtual Environment",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "venv", ".venv"],
+      "options": {
+        "cwd": "${workspaceFolder:Personal Data Platform}"
+      }
+    },
+    {
+      "label": "📦 Python: Install Requirements",
+      "type": "shell",
+      "command": "pip",
+      "args": ["install", "-r", "requirements.txt"],
+      "options": {
+        "cwd": "${workspaceFolder:Personal Data Platform}"
+      }
+    },
+    {
+      "label": "🧪 Python: Run Tests",
+      "type": "shell",
+      "command": "pytest",
+      "args": ["-v", "--tb=short"],
+      "options": {
+        "cwd": "${workspaceFolder:Personal Data Platform}"
+      }
+    },
+    {
+      "label": "📝 Generate Documentation",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "pydoc", "-b"],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "🔍 Workspace: Check Git Status",
+      "type": "shell",
+      "command": "git",
+      "args": ["status"],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "🔍 Workspace: Git Pull All Repos",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "foreach ($folder in @('c:\\Users\\Dylan\\Dev\\active\\proxmox-docker', 'c:\\Users\\Dylan\\Dev\\active\\proxmox-docs', 'c:\\Users\\Dylan\\Dev\\.WorkSpace\\HomeAssistant\\home-assistant-unified')) { if (Test-Path $folder) { Write-Host \\\"Pulling $folder...\\\"; Push-Location $folder; git pull; Pop-Location } }"
+      ]
+    },
+    {
+      "label": "✨ Format: All Python Files",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "ruff", "format", "."],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "🔧 Lint: Check Python Code",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "ruff", "check", "."],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "📊 Deploy Verification: Home Assistant",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder:Home Assistant Integration}/scripts/deploy-verify.ps1"
+      ]
+    }
+  ]
+}

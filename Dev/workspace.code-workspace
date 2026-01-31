@@ -1,0 +1,133 @@
+{
+  "folders": [
+    {
+      "path": "c:\\Users\\Dylan\\Dev\\active\\proxmox-docker",
+      "name": "🖥️ Proxmox Docker Platform",
+    },
+    {
+      "path": "c:\\Users\\Dylan\\Dev\\active\\proxmox-docs",
+      "name": "📚 Proxmox Documentation",
+    },
+    {
+      "path": "c:\\Users\\Dylan\\Dev\\active\\proxmox-personal-data-platform",
+      "name": "🗄️ Personal Data Platform",
+    },
+    {
+      "path": "c:\\Users\\Dylan\\Dev\\.WorkSpace\\HomeAssistant\\ProxmoxAPI",
+      "name": "🔧 Proxmox API (TypeScript)",
+    },
+    {
+      "path": "c:\\Users\\Dylan\\Dev\\.WorkSpace\\HomeAssistant\\home-assistant-unified",
+      "name": "🏠 Home Assistant Integration",
+    },
+    {
+      "path": "c:\\Users\\Dylan\\Dev\\active\\RDM-Configuration",
+      "name": "⚙️ RDM Configuration",
+    },
+    {
+      "path": "c:\\Users\\Dylan\\Dev\\tools",
+      "name": "🛠️ SSH & Tools",
+    },
+    {
+      "path": "c:\\Users\\Dylan\\Dev\\.WorkSpace\\HomeAssistant\\logs",
+      "name": "📝 Logs & Monitoring",
+    },
+    {
+      "path": "c:\\Users\\Dylan\\Dev\\.WorkSpace\\HomeAssistant\\BACKUP3.1.1",
+      "name": "💾 Backups",
+    },
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "${workspaceFolder:Home Assistant Integration}/.venv/bin/python",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "black",
+    "python.testing.pytestEnabled": true,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-python.python",
+    "editor.rulers": [80, 120],
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/*.pyc": true,
+      "**/.pytest_cache": true,
+      "**/.venv": true,
+      "**/*.egg-info": true,
+    },
+    "search.exclude": {
+      "**/__pycache__": true,
+      "**/.venv": true,
+      "**/node_modules": true,
+      "**/.git": true,
+    },
+    "files.watcherExclude": {
+      "**/__pycache__": true,
+      "**/.venv": true,
+      "**/node_modules": true,
+    },
+    "docker.commands.composeVersion": "v2",
+    "yaml.schemas": {
+      "http://json.schemastore.org/github-workflow": ".github/workflows/*.yml",
+      "http://json.schemastore.org/docker-compose": "**/docker-compose*.yml",
+    },
+    "yaml.customTags": ["!include"],
+    "extensions.ignoreRecommendations": false,
+    "git.autoRepositoryDetection": "openEditors",
+    "git.autofetch": false,
+    "git.confirmSync": true,
+    "git.pullBeforeCheckout": true,
+    "remote.SSH.configFile": "~/.ssh/config",
+    "remote.SSH.useLocalServer": true,
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.profiles.windows": {
+      "PowerShell": {
+        "source": "PowerShell",
+        "icon": "terminal-powershell",
+      },
+      "Git Bash": {
+        "source": "Git Bash",
+      },
+      "Command Prompt": {
+        "path": "cmd.exe",
+      },
+    },
+    "markdown.preview.breaks": true,
+    "markdown.preview.linkify": true,
+    "markdown.extension.toc.orderedList": false,
+    "todohighlight.isEnable": true,
+    "todohighlight.keywords": [
+      "TODO",
+      "FIXME",
+      "NOTE",
+      "IMPORTANT",
+      "CRITICAL",
+    ],
+    "workbench.editor.tabClipboardWordFilter": true,
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "GitHub Dark Default",
+    "workbench.activityBar.visible": true,
+    "workbench.sideBar.location": "left",
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Python: Home Assistant Script",
+        "type": "python",
+        "request": "launch",
+        "program": "${file}",
+        "console": "integratedTerminal",
+        "justMyCode": true,
+        "cwd": "${workspaceFolder:Home Assistant Integration}",
+      },
+      {
+        "name": "Python: Run Tests",
+        "type": "python",
+        "request": "launch",
+        "module": "pytest",
+        "args": ["-v", "--tb=short"],
+        "console": "integratedTerminal",
+        "cwd": "${workspaceFolder:Personal Data Platform}",
+      },
+    ],
+  },
+}
