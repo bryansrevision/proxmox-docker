@@ -1,0 +1,104 @@
+# Windows System Directories
+AppData/
+Application Data/
+Cookies/
+Local Settings/
+My Documents/
+NetHood/
+PrintHood/
+Recent/
+SendTo/
+Start Menu/
+Templates/
+NTUSER.DAT*
+ntuser.dat*
+ntuser.ini
+
+# User Directories
+Documents/
+Downloads/
+Desktop/
+Pictures/
+Music/
+Videos/
+Contacts/
+Favorites/
+Links/
+Saved Games/
+Searches/
+OneDrive/
+My Drive*/
+iPhoneBackups/
+PhoneRestore/
+Backup/
+Ghost32/
+CrossDevice/
+AndroidProjects/
+
+# OneDrive Work Directories
+OneDrive - Kedrion Biopharma/
+
+# Development Tool Directories
+.VirtualBox/
+.aitk/
+.android/
+.cache/
+.cagent/
+.chocolatey/
+.config/
+.connectors/
+.copilot/
+.copilot-cli-copilot-token
+.dbus-keyrings/
+.docker/
+.dotnet/
+.gemini/
+.gk/
+.github/
+.gradle/
+.lesshst
+.local/
+.m3studio/
+.node-red/
+.nuget/
+.otk/
+.platformio/
+.rdm-secrets/
+.rest-client/
+.ssh/
+.templateengine/
+.wslconfig
+node_modules/
+
+# Shell History and Config
+.bash_history
+.gitconfig
+.cdHistory
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs and Temp Files
+*.log
+*.tmp
+*-prev
+.tmp/
+logs/
+
+# Advanced IP Scanner
+advanced_ip_scanner_*
+
+# Package files
+package-lock.json
+package.json
+
+# Scripts (if you want to track these, remove from here)
+*.ps1
+*.py
+*.bat
+
+# Only track specific Dev projects in your workspace
+# Use git add -f to force add files if needed
