@@ -1,0 +1,79 @@
+
+services:
+  proxmox-platform:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: proxmox-pxmgr
+    image: proxmox-platform:latest
+    
+    # Environment configuration
+    env_file: .env
+    environment:
+      - CONFIG_DIR=/app/config
+      - LOG_DIR=/app/logs
+      - PYTHONUNBUFFERED=1
+    
+    # Volume mounts for persistent data
+    volumes:
+      # Configuration directory
+      - ./config:/app/config
+      # Logs directory
+      - ./logs:/app/logs
+      # SSH keys (optional)
+      - ~/.ssh:/home/pxmgr/.ssh:ro
+      # .env file
+      - ./.env:/.env:ro
+    
+    # Network configuration
+    networks:
+      - proxmox-net
+    
+    # Resource limits (adjust based on your system)
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 1G
+        reservations:
+          cpus: '1'
+          memory: 512M
+    
+    # Restart policy
+    restart: unless-stopped
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "pxmgr", "selftest"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    
+    # Logging
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # Security options
+    security_opt:
+      - no-new-privileges:true
+    
+    # Standard input/output
+    stdin_open: false
+    tty: false
+    
+    # Default command (can be overridden)
+    command: pxmgr --help
+
+networks:
+  proxmox-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+
+# Optional: Add additional services here
+# For example: monitoring, logging, backup services

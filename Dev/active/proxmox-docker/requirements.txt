@@ -1,0 +1,30 @@
+# Production dependencies
+proxmoxer>=2.0.0          # Proxmox API client
+requests>=2.31.0          # HTTP client for proxmoxer
+typer[all]>=0.9.0         # Modern CLI framework
+rich>=13.0.0              # Rich terminal output
+pydantic>=2.0.0           # Data validation
+pydantic-settings>=2.0.0  # Settings management
+PyYAML>=6.0               # YAML config parsing
+python-dotenv>=1.0.0      # .env file support
+tabulate>=0.9.0           # Table formatting
+jinja2>=3.1.0             # Template rendering
+
+# Optional web dashboard
+fastapi>=0.104.0          # Web framework (optional)
+uvicorn[standard]>=0.24.0 # ASGI server (optional)
+
+# Development dependencies
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-mock>=3.12.0
+pytest-asyncio>=0.21.0
+black>=23.7.0
+flake8>=6.1.0
+mypy>=1.5.0
+isort>=5.12.0
+build>=0.10.0
+twine>=4.0.0
+types-PyYAML>=6.0.0
+types-requests>=2.31.0
+types-tabulate>=0.9.0

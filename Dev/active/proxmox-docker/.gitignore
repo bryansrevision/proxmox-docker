@@ -1,0 +1,16 @@
+.env
+.env.local
+*.log
+logs/
+config/
+.DS_Store
+*.swp
+*.swo
+*~
+__pycache__
+*.pyc
+.pytest_cache
+.venv
+venv
+
+.fake
