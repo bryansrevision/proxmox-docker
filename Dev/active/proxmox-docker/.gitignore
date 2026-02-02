@@ -1,16 +1,59 @@
-.env
-.env.local
-*.log
-logs/
-config/
-.DS_Store
+# System files
+*.DS_Store
+Thumbs.db
+.directory
+desktop.ini
+NTUSER.DAT*
+*.LOG*
+*.tmp
+
+# Python
+__pycache__/
+*.py[cod]
+*\.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+
+# IDEs
+.vscode/
+.idea/
 *.swp
 *.swo
 *~
-__pycache__
-*.pyc
-.pytest_cache
-.venv
-venv
 
-.fake
+# Node
+node_modules/
+package-lock.json
+npm-debug.log
+.npm
+
+# Docker
+.dockerignore
+
+# OS/Backup
+.cache/
+.local/
+.ssh/
+OneDrive/
+OneDrive - */
+.config/
+Backup/
+*.bak
+
+# Credentials
+*.crd
+credentials_backup*
+Backup-codes*
